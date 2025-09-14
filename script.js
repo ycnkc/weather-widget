@@ -10,7 +10,7 @@ fetch(url)
 
     const desc = getWeatherDescription(weather.weathercode);
     const temp = Math.round(weather.temperature) + "°C";
-    const icon = getWeatherAsset(weather.weathercode);
+    const icon = getWeatherAsset(weather.weathercode, isNight);
 
     document.getElementById("desc").textContent = desc;
     document.getElementById("temp").textContent = temp;
@@ -19,11 +19,27 @@ fetch(url)
   .catch(err => console.error("Error:", err));
 
 function getWeatherDescription(code) {
-  const descriptions = {
-    0: "It's sunny today!",
-    1: "It's mostly sunny today!",
-    2: "It's partly cloudy today!",
-    3: "It's cloudy today!",
+  if (isNight && code === 0) {
+    return "It's clear night!";
+  } else if (isNight && (code === 1 || code === 2)) {
+    return "It's a nice night!";
+  } else if (isNight && code === 3)  {
+    return "It's a cloudy night!";
+  } else if (isNight && (code === 45 || code === 48)) {
+    return "It's a foggy night!";
+  } else if (isNight && (code === 51 || code === 61)) {
+    return "It's a rainy night!";
+  } else if (isNight && code === 71) {
+    return "It's a snowy night!";
+  } else if (isNight && code === 95) {
+    return "There's a thunderstorm tonight!";
+  }
+  
+    const descriptions = {
+      0: "It's sunny today!",
+      1: "It's mostly sunny today!",
+      2: "It's partly cloudy today!",
+      3: "It's cloudy today!",
     45: "It's foggy today!",
     48: "It's foggy today!",
     51: "It's drizzling today!",
@@ -35,6 +51,9 @@ function getWeatherDescription(code) {
 }
 
 function getWeatherAsset(code, isNight) {
+  if (isNight) {
+    return "assets/moon.png";
+  }
   const assets = {
     0: "assets/sun.gif",
     1: "assets/sun.gif",
@@ -47,8 +66,7 @@ function getWeatherAsset(code, isNight) {
     71: "assets/snow.gif",
     95: "assets/wind.png"
   };
-
-  return assets[code] || "assets/default.png";
+  return assets[code] || "assets/sun.gif";
 }
 
 const hour = new Date().getHours();
@@ -60,6 +78,4 @@ if (isNight) {
   document.body.classList.add("day");
 }
 
-const icon = isNight ? "assets/moon.png" : getWeatherAsset(weather.weathercode);
-document.getElementById("icon").src = icon;
 
