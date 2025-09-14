@@ -24,8 +24,8 @@ A minimal desktop weather widget built with Electron. <br> **All of the icons, i
 1. Clone the repository:  
 
 ```bash
-git clone https://github.com/yourusername/WeatherWidget.git
-cd WeatherWidget
+git clone https://github.com/yourusername/weather-widget.git
+cd weather-widget
 npm install
 npm start
  ``` 
