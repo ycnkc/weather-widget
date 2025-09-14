@@ -1,0 +1,100 @@
+html,body {
+    background-size: cover;
+    width: 340px;
+    height: 340px;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+body.day {
+    background: url('assets/sky-morning.png') no-repeat center center;
+    background-size: cover;
+
+}
+
+body.night {
+    background: url('assets/sky-night.png') no-repeat center center;
+    background-size: cover;
+
+}
+
+
+header {
+    background: #56D6CE;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    gap: 200px;
+    top: 0;
+    width: 340px;
+    height: 52px;
+}
+
+header h1 {
+    color: #087C76;
+    font-family: "Pixelify Sans";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+header h1:first-child{
+    position: absolute;
+    left: 15px;
+}
+
+header h1:last-child{
+    position: absolute;
+    right: 20px;
+    width: 49px;
+    height: 29px;
+    text-align: center;
+    border-radius: 7px;
+    border: 2px solid #09D0C4;
+    background: #C2F1EF;
+}
+
+hr {
+    position: absolute;
+    top: 52px;
+    width: 340px;
+    border: 0;
+    border-top: 5px solid #09D0C4;
+    margin: 0;
+    padding: 0;
+}
+
+main img {
+    position: relative;
+    width: 186px;
+    height: 186px;
+    flex-shrink: 0;
+    aspect-ratio: 1/1;
+    top: 80px;
+    left: 77px;
+}
+
+.weather-description img {
+    position: absolute;
+    width: 240px;
+    flex-shrink: 0;
+    top: 190px;
+    left: 40px;
+}
+
+.weather-description p {
+    color: #087C76;
+    font-family: "Pixelify Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    position: absolute;
+    display: inline-block;
+    width: 240px;
+    top: 260px;
+    left: 40px;
+    text-align: center;
+}
